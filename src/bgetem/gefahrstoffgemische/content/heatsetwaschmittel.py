@@ -1,60 +1,55 @@
 # -*- coding: utf-8 -*-
-# from plone.app.textfield import RichText
-# from plone.autoform import directives
+from plone.app.textfield import RichText
+from plone.autoform import directives
 from plone.dexterity.content import Container
 # from plone.namedfile import field as namedfile
 from plone.supermodel import model
 # from plone.supermodel.directives import fieldset
 # from z3c.form.browser.radio import RadioFieldWidget
-# from zope import schema
+from zope import schema
 from zope.interface import implementer
 
 
-# from bgetem.gefahrstoffgemische import _
+from bgetem.gefahrstoffgemische import _
+
+from bgetem.gefahrstoffgemische.vocabularies import hskategorieVocabulary
+
+# from collective.z3cform.datagridfield import DictRow, DataGridFieldFactory
+
 
 
 class IHeatsetwaschmittel(model.Schema):
-    """ Marker interface and Dexterity Python Schema for Heatsetwaschmittel
     """
-    # If you want, you can load a xml model created TTW here
-    # and customize it in Python:
+    Description of the Example Type
+    """
 
-    # model.load('heatsetwaschmittel.xml')
+#    directives.widget('verdampfung', DataGridFieldFactory)
 
-    # directives.widget(level=RadioFieldWidget)
-    # level = schema.Choice(
-    #     title=_(u'Sponsoring Level'),
-    #     vocabulary=LevelVocabulary,
-    #     required=True
-    # )
+#    hersteller = RelationChoice(title=_(u"Hersteller"),
+#            description=_(u"Bitte wählen Sie hier den Hersteller des Reinigungsmittels aus."),
+#            source=ObjPathSourceBinder(object_provides=IHersteller.__identifier__),
+#            required = True,)
 
-    # text = RichText(
-    #     title=_(u'Text'),
-    #     required=False
-    # )
+#    verdampfung = schema.List(title=_(u"Verdampungsfaktoren"),
+#            description=_(u"Bitte tragen Sie hier die Verdampfungsfaktoren fuer die entsprechenden Bahntemperaturen ein"),
+#            value_type=DictRow(title=u"Verdampfungsfaktoren", schema=IVerdampfung),
+#            required = False,)
 
-    # url = schema.URI(
-    #     title=_(u'Link'),
-    #     required=False
-    # )
+    emissionsgeprueft=schema.Bool(title=_(u"Emissionsarmes Produkt"),
+            description=_(u"Bitte markieren Sie hier, wenn für das Produkt die Kriterien des Gütesiegels\
+                              erfüllt sind."),
+            required=False,)
 
-    # fieldset('Images', fields=['logo', 'advertisement'])
-    # logo = namedfile.NamedBlobImage(
-    #     title=_(u'Logo'),
-    #     required=False,
-    # )
+    ueg = schema.TextLine(title=_(u"UEG in g/m3"), required=False)
 
-    # advertisement = namedfile.NamedBlobImage(
-    #     title=_(u'Advertisement (Gold-sponsors and above)'),
-    #     required=False,
-    # )
+    response = schema.TextLine(title=_(u"Responsefaktor"), required=False)
 
-    # directives.read_permission(notes='cmf.ManagePortal')
-    # directives.write_permission(notes='cmf.ManagePortal')
-    # notes = RichText(
-    #     title=_(u'Secret Notes (only for site-admins)'),
-    #     required=False
-    # )
+    hskategorie = schema.Choice(title=_(u"Hautschutzmittelgruppe"),
+            vocabulary=hskategorieVocabulary,
+            required=False)
+
+    pruefdateum = schema.Date(title=_(u"Prüfdatum"),
+            required = False,)
 
 
 @implementer(IHeatsetwaschmittel)
