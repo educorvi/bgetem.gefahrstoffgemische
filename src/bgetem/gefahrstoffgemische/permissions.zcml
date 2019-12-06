@@ -7,6 +7,12 @@
   <!-- -*- extra stuff goes here -*- -->
 
     <permission
+        id="bgetem.gefahrstoffgemische.AddGefahrstoffgemisch"
+        title="bgetem.gefahrstoffgemische: Add Gefahrstoffgemisch"
+    />
+
+
+    <permission
         id="bgetem.gefahrstoffgemische.AddHeatsetwaschmittel"
         title="bgetem.gefahrstoffgemische: Add Heatsetwaschmittel"
     />
