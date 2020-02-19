@@ -5,9 +5,112 @@
       i18n:domain="bgetem.gefahrstoffgemische"
       metal:use-macro="context/main_template/macros/master">
 <body>
-  <metal:block fill-slot="content-core">
-      <h2 i18n:translate="">Sample View</h2>
-      <p tal:content="view/msg">this gets replaced</p>
-  </metal:block>
+    <metal:main fill-slot="main">
+    <tal:main-macro metal:define-macro="main">
+
+   <!--
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-md-8">
+          <h1 tal:content="context/title"></h1>
+          <h2 tal:content="context/description"></h2>
+          <table class="table" tal:define="hersteller view/get_herstellerdaten">
+            <thead>
+              <tr>
+                <th scope="col">Eigenschaft</th>
+                <th scope="col">Titel</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">Produktname:</th>
+                <td><span tal:content="view/producktname"></span></td>
+              </tr>
+              <tr>
+                <th scope="row">Hersteller:</th>
+                <td><span tal:condition="hersteller" tal:content="hersteller/name"></span></td>
+              </tr>
+              <tr>
+                <th scope="row">Anschrift 1:</th>
+                <td><span tal:condition="hersteller" tal:content="hersteller/anschrift1"></span></td>
+              </tr>
+              <tr>
+                <th scope="row">Anschrift 2:</th>
+                <td><span tal:condition="hersteller" tal:content="hersteller/anschrift2"></span></td>
+              </tr>
+              <tr>
+                <th scope="row">Anschrift 3:</th>
+                <td><span tal:condition="hersteller" tal:content="hersteller/anschrift3"></span></td>
+              </tr>
+              <tr>
+                <th scope="row">Tel:</th>
+                <td><span tal:condition="hersteller" tal:content="hersteller/telefon"></span></td>
+              </tr>
+              <tr>
+                <th scope="row">E-Mail:</th>
+                <td><a tal:condition="hersteller" tal:content="hersteller/email" tal:attributes="href hersteller/email" class="badge badge-light"></a></td>
+              </tr>
+              <tr>
+                <th scope="row">Website:</th>
+                <td><a tal:condition="hersteller" tal:content="hersteller/homepage" tal:attributes="href hersteller/homepage" class="badge badge-light"></a></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+                  -->
+
+        <div class="col-12">
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Titel</th>
+                <th scope="col">Wert</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">Medianwert</th>
+                <td>
+                  <a tal:content="context/medianwert"/>
+                </td>
+              </tr>
+
+              <tr>
+                <th scope="row">Volumenanteil</th>
+                <td>
+                  <a tal:content="context/volumenanteil"/>
+                </td>
+              </tr>
+
+               <tr>
+                <th scope="row">Maschinen</th>
+                <td>
+                  <ul tal:define="maschinen context/maschinen">
+                    <li tal:repeat="i maschinen" tal:content="i"></li>
+                  </ul>
+                </td>
+              </tr>
+
+              <tr>
+                <th scope="row">Emissionsgeprüft?</th>
+                <td>
+                  <a tal:content="view/emissionsgeprueft"/>
+                </td>
+              </tr>
+
+              <tr>
+                <th scope="row">Prüfdatum</th>
+                <td>
+                  <a tal:content="context/pruefdateum"/>
+                </td>
+              </tr>
+
+
+            </tbody>
+          </table>
+    </div>
+
+  </tal:main-macro>
+</metal:main>
 </body>
 </html>
