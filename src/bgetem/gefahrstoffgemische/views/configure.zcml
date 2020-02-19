@@ -7,6 +7,14 @@
   -*- extra stuff goes here -*-
 
   <browser:page
+    name="gefahrstoffgemisch-view"
+    for="Products.CMFCore.interfaces.IFolderish"
+    class=".gefahrstoffgemisch_view.GefahrstoffgemischView"
+    template="gefahrstoffgemisch_view.pt"
+    permission="zope2.View"
+    />
+
+  <browser:page
     name="druckbestaeubungspuder-view"
     for="Products.CMFCore.interfaces.IFolderish"
     class=".druckbestaeubungspuderview.Druckbestaeubungspuderview"
