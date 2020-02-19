@@ -4,7 +4,7 @@ from bgetem.gefahrstoffgemische import _
 from Products.Five.browser import BrowserView
 
 # from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
-
+from bgetem.gefahrstoffgemische.vocabularies import ausgangsmaterialien
 
 class Druckbestaeubungspuderview(BrowserView):
     # If you want to define a template here, please remove the template from
@@ -16,8 +16,11 @@ class Druckbestaeubungspuderview(BrowserView):
         self.msg = _(u'A small message')
         return self.index()
 
-
-
+    def get_ausgangsmaterial(self):
+        if self.context.ausgangsmaterial:
+            return ausgangsmaterialien.getTerm(self.context.ausgangsmaterial).title
+        return ''
+            
     def get_herstellerdaten(self):
         herstellerdaten = {}
         if self.context.hersteller:

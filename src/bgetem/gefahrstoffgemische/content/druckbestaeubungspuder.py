@@ -16,23 +16,23 @@ from bgetem.gefahrstoffgemische import _
 
 from plone.app.vocabularies.catalog import CatalogSource
 
-#from bgetem.gefahrstoffgemische.vocabularies import ausgangsmaterial
+from bgetem.gefahrstoffgemische.vocabularies import klasse, ausgangsmaterialien
 
 class IDruckbestaeubungspuder(model.Schema):
     """
     Description of the Example Type
     """
 
-    #produktklasse = schema.Choice(title=_(u"Produktklasse"),
-            #description=_(u"Bitte wählen Sie eine Produktklasse für das Druckbestäubungspuder aus."),
-            #vocabulary = ausgangsmaterial,
-            #required=False
-            #)
+    produktklasse = schema.Choice(title=_(u"Produktklasse"),
+            description=_(u"Bitte wählen Sie eine Produktklasse für das Druckbestäubungspuder aus."),
+            vocabulary = klasse,
+            required=False
+            )
 
-    #ausgangsmaterial = schema.Choice(title=_(u"Ausgangsmaterial"),
-            #description=_(u"Bitte wählen Sie das Ausgangsmaterial für das Druckbestäubungspuder aus."),
-            #vocabulary=ausgangsmaterial,
-            #required=False,)
+    ausgangsmaterial = schema.Choice(title=_(u"Ausgangsmaterial"),
+            description=_(u"Bitte wählen Sie das Ausgangsmaterial für das Druckbestäubungspuder aus."),
+            vocabulary=ausgangsmaterialien,
+            required=False,)
 
     medianwert = schema.Float(title=_(u"Medianwert in µm"),
             description=_(u"Bitte geben Sie hier den Medianwert in Micrometer als Gleitkommawert an."),

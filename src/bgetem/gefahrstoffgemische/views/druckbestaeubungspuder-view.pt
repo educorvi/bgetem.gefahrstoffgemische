@@ -76,6 +76,18 @@
               </tr>
 
               <tr>
+                <th scope="row">Produktklasse</th>
+                <td>
+                  <a tal:content="context/produktklasse"/>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">Ausgangsmaterial</th>
+                <td>
+                  <a tal:content="view/get_ausgangsmaterial"/>
+                </td>
+              </tr>
+              <tr>
                 <th scope="row">Volumenanteil</th>
                 <td>
                   <a tal:content="context/volumenanteil"/>
