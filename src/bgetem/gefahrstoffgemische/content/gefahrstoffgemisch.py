@@ -12,7 +12,7 @@ from zope.interface import implementer
 
 from bgetem.gefahrstoffgemische import _
 
-from bgetem.gefahrstoffgemische.vocabularies import wmklasse, wmkategorie, institute, hskategorieVocabulary
+#from bgetem.gefahrstoffgemische.vocabularies import wmklasse, wmkategorie, institute, hskategorieVocabulary
 
 
 class IGefahrstoffgemisch(model.Schema):
@@ -25,15 +25,15 @@ class IGefahrstoffgemisch(model.Schema):
 #                 source=ObjPathSourceBinder(object_provides=IHersteller.__identifier__),
 #                 required = True,)
 
-    produktkategorie = schema.List(title=_(u"Produktkategorie"),
-            description=_(u"Bitte wählen Sie eine Produktkategorie für das Wasch- und Reinigungsmittel aus."),
-            value_type = schema.Choice(source=wmkategorie),
-            required = True,)
+    #produktkategorie = schema.List(title=_(u"Produktkategorie"),
+    #        description=_(u"Bitte wählen Sie eine Produktkategorie für das Wasch- und Reinigungsmittel aus."),
+    #        value_type = schema.Choice(source=wmkategorie),
+    #        required = True,)
 
-    produktklasse = schema.Choice(title=_(u"Produktklasse"),
-            description=_(u"Bitte wählen Sie eine Produktklasse für das Waschn- und Reinigungsmittel aus."),
-            vocabulary = wmklasse,
-            required=True,)
+    #produktklasse = schema.Choice(title=_(u"Produktklasse"),
+    #        description=_(u"Bitte wählen Sie eine Produktklasse für das Waschn- und Reinigungsmittel aus."),
+   #         vocabulary = wmklasse,
+    #        required=True,)
 
     flammpunkt = schema.Int(title=_(u"Flammpunkt"),
             description = _(u"Bitte geben Sie hier den Wert des Flammpunktes in Grad Celsius an."),
@@ -61,14 +61,14 @@ class IGefahrstoffgemisch(model.Schema):
 #            value_type=schema.Choice(source=dmvocab),
 #            required=True,)
 
-    materialvertraeglichkeit = schema.Choice(title=_(u"Materialverträglichkeit"),
-            description = _(u"Bitte wählen Sie hier die Institute aus, von denen die Materialverträglichkeit getestet wurde."),
-            vocabulary=institute,
-            required=True,)
+    #materialvertraeglichkeit = schema.Choice(title=_(u"Materialverträglichkeit"),
+    #        description = _(u"Bitte wählen Sie hier die Institute aus, von denen die Materialverträglichkeit getestet wurde."),
+    #        vocabulary=institute,
+    #        required=True,)
 
-    hskategorie = schema.Choice(title=_(u"Hautschutzmittelgruppe"), 
-            vocabulary=hskategorieVocabulary, 
-            required=False)
+    #hskategorie = schema.Choice(title=_(u"Hautschutzmittelgruppe"), 
+    #        vocabulary=hskategorieVocabulary, 
+    #        required=False)
 
     bemerkungen = RichText(title=_(u"Bemerkungen"),
                   description=_(u"Hier können zusätliche Bemerkungen zum Produktdatenblatt eingefügt werden."),

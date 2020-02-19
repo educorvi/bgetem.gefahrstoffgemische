@@ -12,7 +12,7 @@ from zope.interface import implementer
 
 from bgetem.gefahrstoffgemische import _
 
-from bgetem.gefahrstoffgemische.vocabularies import hskategorieVocabulary
+#from bgetem.gefahrstoffgemische.vocabularies import hskategorieVocabulary
 
 # from collective.z3cform.datagridfield import DictRow, DataGridFieldFactory
 
@@ -44,9 +44,9 @@ class IHeatsetwaschmittel(model.Schema):
 
     response = schema.TextLine(title=_(u"Responsefaktor"), required=False)
 
-    hskategorie = schema.Choice(title=_(u"Hautschutzmittelgruppe"),
-            vocabulary=hskategorieVocabulary,
-            required=False)
+    #hskategorie = schema.Choice(title=_(u"Hautschutzmittelgruppe"),
+    #        vocabulary=hskategorieVocabulary,
+    #        required=False)
 
     pruefdateum = schema.Date(title=_(u"Prüfdatum"),
             required = False,)
