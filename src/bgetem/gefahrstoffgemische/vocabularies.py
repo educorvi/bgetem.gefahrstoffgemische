@@ -22,7 +22,7 @@ hskategorieVocabulary = SimpleVocabulary((
     ))
 
 wmklasse = SimpleVocabulary(
-        SimpleTerm(value=u'Reinigungsoele auf Pflanzenoelbasis', title=_(u'Waschmittel auf Pflanzenölbasis')),
+     SimpleTerm(value=u'Reinigungsoele auf Pflanzenoelbasis', title=_(u'Waschmittel auf Pflanzenölbasis')),
      SimpleTerm(value=u'UV-Waschmittel', title=_(u'UV-Waschmittel')),
      SimpleTerm(value=u'Waschmittel auf Kohlenwasserstoffbasis', title=_(u'Waschmittel auf Kohlenwasserstoffbasis')),
      SimpleTerm(value=u'Waschmittel auf Basis Testbenzin', title=_(u'Waschmittel auf Basis Testbenzin')),
