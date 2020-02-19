@@ -7,6 +7,14 @@
   -*- extra stuff goes here -*-
 
   <browser:page
+    name="heatsetwaschmittel-view"
+    for="Products.CMFCore.interfaces.IFolderish"
+    class=".heatsetwaschmittel_view.HeatsetwaschmittelView"
+    template="heatsetwaschmittel_view.pt"
+    permission="zope2.View"
+    />
+
+  <browser:page
     name="gefahrstoffgemisch-view"
     for="Products.CMFCore.interfaces.IFolderish"
     class=".gefahrstoffgemisch_view.GefahrstoffgemischView"
