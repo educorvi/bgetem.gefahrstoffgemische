@@ -56,4 +56,11 @@ class GefahrstoffgemischView(BrowserView):
         import pdb; pdb.set_trace()
         for i in self.context.hskategorie:
             hskategorien.append(hskategorieVocabulary.getTerm(i).title)
+            import pdb; pdb.set_trace()
         return hskategorien
+
+    def bemerkungen(self):
+        if self.context.bemerkungen:
+            bemerkungen = self.context.bemerkungen
+            bemerkungen = bemerkungen.output
+            return bemerkungen
