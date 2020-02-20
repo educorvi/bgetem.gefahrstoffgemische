@@ -25,14 +25,21 @@
               <tr>
                 <th scope="row">Produktkategorie</th>
                 <td>
-                  <li tal:repeat="kategorie context/produktkategorie" tal:content="kategorie"></li>
+                  <li tal:condition="context/produktkategorie" tal:repeat="kategorie context/produktkategorie" tal:content="kategorie"></li>
                 </td>
               </tr>
 
               <tr>
                 <th scope="row">Produktklasse</th>
                 <td>
-                  <span tal:content="context/produktklasse">
+                  <span tal:condition="context/produktklasse" tal:content="context/produktklasse">
+                </td>
+              </tr>
+
+              <tr>
+                <th scope="row">Flammpunkt</th>
+                <td>
+                  <span tal:condition="context/flammpunkt" tal:content="context/flammpunkt">
                 </td>
               </tr>
 

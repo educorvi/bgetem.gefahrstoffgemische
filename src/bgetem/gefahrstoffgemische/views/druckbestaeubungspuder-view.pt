@@ -25,28 +25,28 @@
               <tr>
                 <th scope="row">Produktklasse</th>
                 <td>
-                  <span tal:content="context/produktklasse"/>
+                  <span tal:condition="context/produktklasse" tal:content="context/produktklasse"/>
                 </td>
               </tr>
 
               <tr>
                 <th scope="row">Ausgangsmaterial</th>
                 <td>
-                  <span tal:content="view/get_ausgangsmaterial"/>
+                  <span tal:condition="context/ausgangsmaterial" tal:content="view/get_ausgangsmaterial"/>
                 </td>
               </tr>
 
               <tr>
                 <th scope="row">Medianwert</th>
                 <td>
-                  <span tal:content="context/medianwert"/>
+                  <span tal:condition="context/medianwert" tal:content="context/medianwert"/>
                 </td>
               </tr>
 
               <tr>
                 <th scope="row">Volumenanteil</th>
                 <td>
-                  <span tal:content="context/volumenanteil"/>
+                  <span tal:condition="context/volumenanteil" tal:content="context/volumenanteil"/>
                 </td>
               </tr>
 
@@ -54,7 +54,7 @@
                 <th scope="row">Maschinen</th>
                 <td>
                   <ul tal:define="maschinen context/maschinen">
-                    <li tal:repeat="maschine maschinen" tal:content="maschine"></li>
+                    <li tal:condition="maschinen" tal:repeat="maschine maschinen" tal:content="maschine"></li>
                   </ul>
                 </td>
               </tr>
@@ -69,7 +69,7 @@
               <tr>
                 <th scope="row">Prüfdatum</th>
                 <td>
-                  <span tal:content="context/pruefdateum"/>
+                  <span tal:condition="context/pruefdateum" tal:content="context/pruefdateum"/>
                 </td>
               </tr>
             </tbody>
