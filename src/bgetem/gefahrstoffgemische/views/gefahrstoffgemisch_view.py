@@ -15,3 +15,17 @@ class GefahrstoffgemischView(BrowserView):
         # Implement your own actions:
         self.msg = _(u'A small message')
         return self.index()
+
+
+    def get_herstellerdaten(self):
+        herstellerdaten = {}
+        if self.context.hersteller:
+            hersteller = self.context.hersteller.to_object
+            herstellerdaten['name'] = hersteller.title
+            herstellerdaten['anschrift1'] = hersteller.anschrift1
+            herstellerdaten['anschrift2'] = hersteller.anschrift2
+            herstellerdaten['anschrift3'] = hersteller.anschrift3
+            herstellerdaten['telefon'] = hersteller.telefon
+            herstellerdaten['email'] = hersteller.email
+            herstellerdaten['homepage'] = hersteller.homepage
+        return herstellerdaten

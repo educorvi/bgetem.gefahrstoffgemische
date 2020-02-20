@@ -11,9 +11,73 @@
 
     <div class="container">
       <div class="row">
-        <div class="col-12 col-md-6">
+        <div class="col-md-6">
           <h1 tal:content="context/title"></h1>
-          <h2 tal:content="context/description"></h2>
+          <h4 tal:content="context/description"></h4>
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Titel</th>
+                <th scope="col">Wert</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">Produktklasse</th>
+                <td>
+                  <span tal:content="context/produktklasse"/>
+                </td>
+              </tr>
+
+              <tr>
+                <th scope="row">Ausgangsmaterial</th>
+                <td>
+                  <span tal:content="view/get_ausgangsmaterial"/>
+                </td>
+              </tr>
+
+              <tr>
+                <th scope="row">Medianwert</th>
+                <td>
+                  <span tal:content="context/medianwert"/>
+                </td>
+              </tr>
+
+              <tr>
+                <th scope="row">Volumenanteil</th>
+                <td>
+                  <span tal:content="context/volumenanteil"/>
+                </td>
+              </tr>
+
+               <tr>
+                <th scope="row">Maschinen</th>
+                <td>
+                  <ul tal:define="maschinen context/maschinen">
+                    <li tal:repeat="maschine maschinen" tal:content="maschine"></li>
+                  </ul>
+                </td>
+              </tr>
+
+              <tr>
+                <th scope="row">Emissionsgeprüft?</th>
+                <td>
+                  <span tal:content="view/emissionsgeprueft"/>
+                </td>
+              </tr>
+
+              <tr>
+                <th scope="row">Prüfdatum</th>
+                <td>
+                  <span tal:content="context/pruefdateum"/>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+          <div class="col-md-6">
+          <h3>Herstellerdaten</h3>
           <table class="table" tal:define="hersteller view/get_herstellerdaten">
             <thead>
               <tr>
@@ -60,72 +124,8 @@
             </tbody>
           </table>
         </div>
-
-
-        <div class="col-md-6">
-          <table class="table">
-            <thead>
-              <tr>
-                <th scope="col">Titel</th>
-                <th scope="col">Wert</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <th scope="row">Produktklasse</th>
-                <td>
-                  <a tal:content="context/produktklasse"/>
-                </td>
-              </tr>
-
-              <tr>
-                <th scope="row">Ausgangsmaterial</th>
-                <td>
-                  <a tal:content="view/get_ausgangsmaterial"/>
-                </td>
-              </tr>
-
-              <tr>
-                <th scope="row">Medianwert</th>
-                <td>
-                  <a tal:content="context/medianwert"/>
-                </td>
-              </tr>
-
-              <tr>
-                <th scope="row">Volumenanteil</th>
-                <td>
-                  <a tal:content="context/volumenanteil"/>
-                </td>
-              </tr>
-
-               <tr>
-                <th scope="row">Maschinen</th>
-                <td>
-                  <ul tal:define="maschinen context/maschinen">
-                    <li tal:repeat="maschine maschinen" tal:content="maschine"></li>
-                  </ul>
-                </td>
-              </tr>
-
-              <tr>
-                <th scope="row">Emissionsgeprüft?</th>
-                <td>
-                  <a tal:content="view/emissionsgeprueft"/>
-                </td>
-              </tr>
-
-              <tr>
-                <th scope="row">Prüfdatum</th>
-                <td>
-                  <a tal:content="context/pruefdateum"/>
-                </td>
-              </tr>
-
-
-            </tbody>
-          </table>
-    </div>
+       </div>
+      </div>
 
   </tal:main-macro>
 </metal:main>
