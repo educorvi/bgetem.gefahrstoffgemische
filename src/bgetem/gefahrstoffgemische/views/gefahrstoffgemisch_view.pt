@@ -43,6 +43,38 @@
                 </td>
               </tr>
 
+              <tr>
+                <th scope="row">Flammpunkt evtl. höher als angegebener Wert?</th>
+                <td>
+                  <span tal:content="view/wertebereich"/>
+                </td>
+              </tr>
+
+              <tr>
+                <th scope="row">Emissionsgeprüft?</th>
+                <td>
+                  <span tal:content="view/emissionsgeprueft"/>
+                </td>
+              </tr>
+
+              <tr>
+                <th scope="row">Materialverträglichkeit</th>
+                <td>
+                  <span tal:condition="context/materialvertraeglichkeit" tal:content="context/materialvertraeglichkeit"/>
+                </td>
+              </tr>
+
+              <!--
+              <tr>
+                <th scope="row">Hautschutzmittelgruppe</th>
+                <td>
+                  <ul>
+                    <li tal:repeat="kat view/get_hskategorie" tal:content="kat"></li>
+                  </ul>
+                </td>
+              </tr>
+              -->
+
             </tbody>
           </table>
       </div>

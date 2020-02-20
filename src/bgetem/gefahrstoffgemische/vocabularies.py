@@ -44,9 +44,9 @@ institute = SimpleVocabulary((
     #])
 
 hskategorieVocabulary = SimpleVocabulary((
-    SimpleTerm(u"id_wasserloeslich", u"wasserloeslich", u"gegen wasserlösliche Arbeitsstoffe"),
-    SimpleTerm(u"id_nichtwasserloeslich", u"nichtwasserloeslich", u"gegen wasserunlösliche Arbeitsstoffe"),
-    SimpleTerm(u"id_wechselnd", u"wechselnd", u"gegen wechselnde Arbeitsstoffe")
+    SimpleTerm(value=u"id_wasserloeslich", token=u"id_wasserloeslich", title=_(u"gegen wasserlösliche Arbeitsstoffe")),
+    SimpleTerm(value=u"id_nichtwasserloeslich", token=u"id_nichtwasserloeslich", title=_(u"gegen wasserunlösliche Arbeitsstoffe")),
+    SimpleTerm(value=u"id_wechselnd", token=u"id_wechselnd", title=_(u"gegen wechselnde Arbeitsstoffe")),
     ))
 
 wmklasse = SimpleVocabulary((

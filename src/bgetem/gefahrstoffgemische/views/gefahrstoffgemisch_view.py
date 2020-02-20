@@ -2,6 +2,7 @@
 
 from bgetem.gefahrstoffgemische import _
 from Products.Five.browser import BrowserView
+from bgetem.gefahrstoffgemische.vocabularies import hskategorieVocabulary
 
 # from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 
@@ -29,3 +30,30 @@ class GefahrstoffgemischView(BrowserView):
             herstellerdaten['email'] = hersteller.email
             herstellerdaten['homepage'] = hersteller.homepage
         return herstellerdaten
+
+    def wertebereich(self):
+        wertebereich = self.context.wertebereich
+        if wertebereich:
+            wertebereich = "Ja"
+        else:
+            wertebereich = "Nein"
+
+        return wertebereich
+
+
+    def emissionsgeprueft(self):
+        emissionsgeprueft = self.context.emissionsgeprueft
+        if emissionsgeprueft:
+            emissionsgeprueft = "Ja"
+        else:
+            emissionsgeprueft = "Nein"
+
+        return emissionsgeprueft
+
+
+    def get_hskategorie(self):
+        hskategorien = []
+        import pdb; pdb.set_trace()
+        for i in self.context.hskategorie:
+            hskategorien.append(hskategorieVocabulary.getTerm(i).title)
+        return hskategorien
