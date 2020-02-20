@@ -12,28 +12,30 @@ from zope.interface import implementer
 
 from bgetem.gefahrstoffgemische import _
 
-#from bgetem.gefahrstoffgemische.vocabularies import wmklasse, wmkategorie, institute, hskategorieVocabulary
+from bgetem.gefahrstoffgemische.vocabularies import wmkategorie, wmklasse, institute, hskategorieVocabulary
 
+from z3c.relationfield.schema import RelationList, RelationChoice
+from plone.app.vocabularies.catalog import CatalogSource
 
 class IGefahrstoffgemisch(model.Schema):
     """
     Datenblatt eines Produkts
     """
 
-#    hersteller = RelationChoice(title=_(u"Hersteller"),
-#                 description=_(u"Bitte wählen Sie hier den Hersteller des Wasch- und Reingigungsmittels aus."),
-#                 source=ObjPathSourceBinder(object_provides=IHersteller.__identifier__),
-#                 required = True,)
+    hersteller = RelationChoice(
+        title=_(u"Hersteller oder Lieferant"),
+        source=CatalogSource(portal_type=["Folder", "Hersteller"]),
+        required=False)
 
-    #produktkategorie = schema.List(title=_(u"Produktkategorie"),
-    #        description=_(u"Bitte wählen Sie eine Produktkategorie für das Wasch- und Reinigungsmittel aus."),
-    #        value_type = schema.Choice(source=wmkategorie),
-    #        required = True,)
+    produktkategorie = schema.List(title=_(u"Produktkategorie"),
+            description=_(u"Bitte wählen Sie eine Produktkategorie für das Wasch- und Reinigungsmittel aus."),
+            value_type=schema.Choice(vocabulary=wmkategorie),
+            required = True,)
 
-    #produktklasse = schema.Choice(title=_(u"Produktklasse"),
-    #        description=_(u"Bitte wählen Sie eine Produktklasse für das Waschn- und Reinigungsmittel aus."),
-   #         vocabulary = wmklasse,
-    #        required=True,)
+    produktklasse = schema.Choice(title=_(u"Produktklasse"),
+            description=_(u"Bitte wählen Sie eine Produktklasse für das Waschn- und Reinigungsmittel aus."),
+            vocabulary = wmklasse,
+            required=True,)
 
     flammpunkt = schema.Int(title=_(u"Flammpunkt"),
             description = _(u"Bitte geben Sie hier den Wert des Flammpunktes in Grad Celsius an."),
@@ -55,20 +57,20 @@ class IGefahrstoffgemisch(model.Schema):
                               erfüllt sind."),
             required=False,)
 
-#    maschinen = schema.List(title=_(u"Druckmaschinen und automatische Waschanlagen"),
-#            description=_(u"Bitte geben Sie hier die Druckmaschinen und automatischen Waschanlagen an,\
-#                              für das dieses Wasch- und Reinigungsmittel zugelassen wurde."),
-#            value_type=schema.Choice(source=dmvocab),
-#            required=True,)
-
-    #materialvertraeglichkeit = schema.Choice(title=_(u"Materialverträglichkeit"),
-    #        description = _(u"Bitte wählen Sie hier die Institute aus, von denen die Materialverträglichkeit getestet wurde."),
-    #        vocabulary=institute,
+    #maschinen = schema.List(title=_(u"Druckmaschinen und automatische Waschanlagen"),
+    #        description=_(u"Bitte geben Sie hier die Druckmaschinen und automatischen Waschanlagen an,\
+    #                          für das dieses Wasch- und Reinigungsmittel zugelassen wurde."),
+    #        value_type=schema.Choice(source=dmvocab),
     #        required=True,)
 
-    #hskategorie = schema.Choice(title=_(u"Hautschutzmittelgruppe"), 
-    #        vocabulary=hskategorieVocabulary, 
-    #        required=False)
+    materialvertraeglichkeit = schema.Choice(title=_(u"Materialverträglichkeit"),
+            description = _(u"Bitte wählen Sie hier die Institute aus, von denen die Materialverträglichkeit getestet wurde."),
+            vocabulary=institute,
+            required=True,)
+
+    hskategorie = schema.Choice(title=_(u"Hautschutzmittelgruppe"),
+            vocabulary=hskategorieVocabulary,
+            required=False)
 
     bemerkungen = RichText(title=_(u"Bemerkungen"),
                   description=_(u"Hier können zusätliche Bemerkungen zum Produktdatenblatt eingefügt werden."),
