@@ -68,12 +68,11 @@
               <tr>
                 <th scope="row">Hautschutzmittelgruppe</th>
                 <td>
-                  <ul>
-                    <li tal:repeat="kat view/get_hskategorie" tal:content="kat"></li>
+                  <ul tal:define="hskategorien view/get_hskategorie">
+                    <li tal:repeat="kategorie hskategorien" tal:content="kategorie"></li>
                   </ul>
                 </td>
               </tr>
-
               -->
 
               <tr>
