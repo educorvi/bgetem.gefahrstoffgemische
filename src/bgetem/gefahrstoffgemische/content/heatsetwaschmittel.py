@@ -17,7 +17,8 @@ from plone.app.vocabularies.catalog import CatalogSource
 
 from bgetem.gefahrstoffgemische.vocabularies import hskategorieVocabulary
 
-# from collective.z3cform.datagridfield import DictRow, DataGridFieldFactory
+from collective.z3cform.datagridfield import DataGridFieldFactory
+from collective.z3cform.datagridfield import DictRow
 
 
 
@@ -32,6 +33,8 @@ class IHeatsetwaschmittel(model.Schema):
         title=_(u"Hersteller oder Lieferant"),
         source=CatalogSource(portal_type=["Folder", "Hersteller"]),
         required=False)
+
+    # HINWEIS: schema=IVerdampfung?
 
     #verdampfung = schema.List(
     #        title=_(u"Verdampungsfaktoren"),
