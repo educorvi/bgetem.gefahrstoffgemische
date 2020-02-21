@@ -9,6 +9,9 @@ from plone.supermodel import model
 from zope import schema
 from zope.interface import implementer
 
+from collective.z3cform.datagridfield import DataGridFieldFactory
+from collective.z3cform.datagridfield import DictRow
+
 
 from bgetem.gefahrstoffgemische import _
 
@@ -41,11 +44,13 @@ class IGefahrstoffgemisch(model.Schema):
             description = _(u"Bitte geben Sie hier den Wert des Flammpunktes in Grad Celsius an."),
             required=False,)
 
-#    form.widget(chemikalienliste=DataGridFieldFactory)
-#    chemikalienliste = schema.List(title=u'EG Sicherheitsdatenblatt',
-#                        description=u'Zusammensetzung/Angaben zu Bestandteilen',
-#                        value_type=DictRow(title=u"Chemikalien", schema=IChemikalien),
-#                        required=False,)
+    # HINWEIS: schema=IChemikalien?
+
+    #directives.widget(chemikalienliste=DataGridFieldFactory)
+    #chemikalienliste = schema.List(title=u'EG Sicherheitsdatenblatt',
+    #                    description=u'Zusammensetzung/Angaben zu Bestandteilen',
+    #                    value_type=DictRow(title=u"Chemikalien", schema=IChemikalien),
+    #                    required=False,)
 
     wertebereich = schema.Bool(title=_(u"Wertebereich für den Flammpunkt"),
             description=_(u"Bitte treffen Sie hier eine Auswahl wenn der Wertebereich für den\
