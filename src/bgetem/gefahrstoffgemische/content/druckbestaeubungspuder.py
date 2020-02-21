@@ -58,8 +58,6 @@ class IDruckbestaeubungspuder(model.Schema):
     pruefdateum = schema.Date(title=_(u"Prüfdatum"),
             required=False,)
 
-    #import pdb;pdb.set_trace()
-
     hersteller = RelationChoice(
         title=_(u"Hersteller oder Lieferant"),
         source=CatalogSource(portal_type=["Folder", "Hersteller"]),
