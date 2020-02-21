@@ -87,12 +87,6 @@
             </thead>
             <tbody>
 
-              <!--
-              <tr>
-                <th scope="row">Produktname:</th>
-                <td><span tal:content="view/producktname"></span></td>
-              </tr>
-              -->
               <tr>
                 <th scope="row">Hersteller:</th>
                 <td><span tal:condition="hersteller" tal:content="hersteller/name"></span></td>
