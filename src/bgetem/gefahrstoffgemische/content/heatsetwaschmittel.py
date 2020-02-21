@@ -12,7 +12,10 @@ from zope.interface import implementer
 
 from bgetem.gefahrstoffgemische import _
 
-#from bgetem.gefahrstoffgemische.vocabularies import hskategorieVocabulary
+from z3c.relationfield.schema import RelationList, RelationChoice
+from plone.app.vocabularies.catalog import CatalogSource
+
+from bgetem.gefahrstoffgemische.vocabularies import hskategorieVocabulary
 
 # from collective.z3cform.datagridfield import DictRow, DataGridFieldFactory
 
@@ -25,15 +28,16 @@ class IHeatsetwaschmittel(model.Schema):
 
 #    directives.widget('verdampfung', DataGridFieldFactory)
 
-#    hersteller = RelationChoice(title=_(u"Hersteller"),
-#            description=_(u"Bitte wählen Sie hier den Hersteller des Reinigungsmittels aus."),
-#            source=ObjPathSourceBinder(object_provides=IHersteller.__identifier__),
-#            required = True,)
+    hersteller = RelationChoice(
+        title=_(u"Hersteller oder Lieferant"),
+        source=CatalogSource(portal_type=["Folder", "Hersteller"]),
+        required=False)
 
-#    verdampfung = schema.List(title=_(u"Verdampungsfaktoren"),
-#            description=_(u"Bitte tragen Sie hier die Verdampfungsfaktoren fuer die entsprechenden Bahntemperaturen ein"),
-#            value_type=DictRow(title=u"Verdampfungsfaktoren", schema=IVerdampfung),
-#            required = False,)
+    #verdampfung = schema.List(
+    #        title=_(u"Verdampungsfaktoren"),
+    #        description=_(u"Bitte tragen Sie hier die Verdampfungsfaktoren fuer die entsprechenden Bahntemperaturen ein"),
+    #        value_type=DictRow(title=u"Verdampfungsfaktoren", schema=IVerdampfung),
+    #        required = False,)
 
     emissionsgeprueft=schema.Bool(title=_(u"Emissionsarmes Produkt"),
             description=_(u"Bitte markieren Sie hier, wenn für das Produkt die Kriterien des Gütesiegels\
@@ -44,9 +48,9 @@ class IHeatsetwaschmittel(model.Schema):
 
     response = schema.TextLine(title=_(u"Responsefaktor"), required=False)
 
-    #hskategorie = schema.Choice(title=_(u"Hautschutzmittelgruppe"),
-    #        vocabulary=hskategorieVocabulary,
-    #        required=False)
+    hskategorie = schema.Choice(title=_(u"Hautschutzmittelgruppe"),
+            vocabulary=hskategorieVocabulary,
+            required=False)
 
     pruefdateum = schema.Date(title=_(u"Prüfdatum"),
             required = False,)

@@ -57,6 +57,8 @@ class IGefahrstoffgemisch(model.Schema):
                               erfüllt sind."),
             required=False,)
 
+    # HINWEIS: dmvocab?
+
     #maschinen = schema.List(title=_(u"Druckmaschinen und automatische Waschanlagen"),
     #        description=_(u"Bitte geben Sie hier die Druckmaschinen und automatischen Waschanlagen an,\
     #                          für das dieses Wasch- und Reinigungsmittel zugelassen wurde."),
